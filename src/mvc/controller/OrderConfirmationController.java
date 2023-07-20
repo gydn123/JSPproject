@@ -24,16 +24,16 @@ public class OrderConfirmationController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("OrderConfirmation.do ÁøÀÔ");
+		System.out.println("OrderConfirmation.do ï¿½ï¿½ï¿½ï¿½");
 		MVCBoardDAO dao = new MVCBoardDAO();
 		MemberOrder memo = new MemberOrder();
 		
-		memo = dao.selectView(request.getParameter("orderId"));
+		memo = (MemberOrder) dao.selectView(request.getParameter("orderId"));
 		
 		request.setAttribute("memo", memo);
-		
-//		µðÀúÆÐÃÄ´Â ·çÆ®°æ·Î¸¦ ¾²¸é ¾ÈµÈ´Ù.·çÆ®°æ·Î¸¦ Á¦¿ÜÇÏ°í °æ·Î¸¦ Àû¾îÁà¾ß ÇÑ´Ù. ¶ÇÇÑ
-//		Æ÷¿öµåµÈ ÆäÀÌÁö¿¡ »ó´ë°æ·Î°¡ ÀÖ´Ù¸é ±× »ó´ë°æ·Î ½ÃÀÛÁ¡ÀÌ Æ÷¿öµåµÈ ÆäÀÌÁö°¡ ¾Æ´Ï¶ó, µð½ºÆÐÃÄ¸¦ ½ÃÀÛÇÑ ÆäÀÌÁö°¡ µÇ¾î¼­, »ó´ë°æ·Î ¼³Á¤ÇÒ¶§ ÁÖÀÇÇØ¾ß ÇÑ´Ù.
+		dao.close();
+//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÈ´ï¿½.ï¿½ï¿½Æ®ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½
+//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Î°ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾î¼­, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
 		request.getRequestDispatcher("/orderConfirmation.jsp").forward(request, response);
 	}
 

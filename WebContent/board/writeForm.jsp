@@ -1,8 +1,12 @@
+<%@page import="mvc.model.MemberDAO"%>
+<%@page import="mvc.model.MemberDTO"%>
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String name = (String) request.getAttribute("name");
-	
+	MemberDAO dao = new MemberDAO();
+	MemberDTO dto = dao.selectView((String)session.getAttribute("sessionId"));
+	System.out.println(dto.toString());
 %>
 <html>
 <head>
@@ -11,10 +15,6 @@
 </head>
 <script type="text/javascript">
 	function checkForm() {
-		if (!document.newWrite.name.value) {
-			alert("성명을 입력하세요.");
-			return false;
-		}
 		if (!document.newWrite.subject.value) {
 			alert("제목을 입력하세요.");
 			return false;
@@ -42,22 +42,23 @@
 			<div class="form-group row">
 				<label class="col-sm-2 control-label" >성명</label>
 				<div class="col-sm-3">
-					<input name="name" type="text" class="form-control" value="<%=name %>"
-						placeholder="name">
+				<input type="hidden" name="name" value="<%=dto.getName() %>">
+					<input  type="text" class="form-control" value="<%=dto.getName() %>"
+						placeholder="name" disabled>
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 control-label" >제목</label>
+				<label class="col-sm-2 control-label" for="subject" >제목</label>
 				<div class="col-sm-5">
 
-					<input name="subject" type="text" class="form-control"
+					<input name="subject" type="text" id="subject" class="form-control"
 						placeholder="subject">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 control-label" >내용</label>
+				<label class="col-sm-2 control-label" for="content">내용</label>
 				<div class="col-sm-8">
-					<textarea name="content" cols="50" rows="5" class="form-control"
+					<textarea name="content" id="content" cols="50" rows="5" class="form-control"
 						placeholder="content"></textarea>
 				</div>
 			</div>

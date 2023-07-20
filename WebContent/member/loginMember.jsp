@@ -5,7 +5,7 @@
 <title>Login</title>
 </head>
 <body>
-	<jsp:include page="/menu.jsp" />
+	<jsp:include page="../menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3">로그인</h1>
@@ -21,8 +21,12 @@
 					out.println("아이디와 비밀번호를 확인해 주세요");
 					out.println("</div>");
 				}
+				String pageNum = request.getParameter("pageNum");
+				
 			%>
-			<form class="form-signin" action="processLoginMember.jsp" method="post">
+			<form class="form-signin" action="/WebMarket/loginMember.do" method="post">
+			<input type="hidden" name="pageNum" value="<%=pageNum%>">
+		
 				<div class="form-group">
 					<label for="inputUserName" class="sr-only">User Name</label> 
 					<input type="text" class="form-control" placeholder="ID" name="id" required autofocus>
@@ -35,5 +39,7 @@
 			</form>
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" />
+	
 </body>
 </html>

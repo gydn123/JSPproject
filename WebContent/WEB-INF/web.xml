@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
-
 	<security-role>
 		<description></description >
 		<role-name>admin</role-name>
@@ -21,10 +20,27 @@
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
-			<form-login-page>/login.jsp</form-login-page>
-			<form-error-page>/login_failed.jsp</form-error-page>
+			<form-login-page>/adminLogin.jsp</form-login-page>
+			<form-error-page>/adminLogin_failed.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
+	
+	<context-param>
+		<param-name>POSTS_PER_PAGEB</param-name>
+		<param-value>10</param-value>
+	</context-param>
+	<context-param>
+		<param-name>PAGES_PER_BLOCKB</param-name>
+		<param-value>10</param-value>
+	</context-param>
+	<context-param>
+		<param-name>POSTS_PER_PAGE</param-name>
+		<param-value>4</param-value>
+	</context-param>
+	<context-param>
+		<param-name>PAGES_PER_BLOCK</param-name>
+		<param-value>5</param-value>
+	</context-param>
 	
 	<error-page>
 		<error-code>404</error-code>
@@ -62,4 +78,18 @@
 		<servlet-name>BoardController</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+      <filter-name>SetCharEncoding</filter-name>
+      <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+      <init-param>
+         <param-name>encoding</param-name>
+         <param-value>utf-8</param-value>
+      </init-param>
+   </filter>
+   <filter-mapping>
+      <filter-name>SetCharEncoding</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   
 </web-app>
