@@ -1,6 +1,15 @@
-# JSP project(2023.03.07 ~ 2023.03.17)
+# JSP project-FashionMarket
+- ### jsp를 활용한 mvc패턴의 쇼핑몰 프로젝트
+  - [느낀점](#느낀점)
 
-## JSP 를 활용한 MVC 패턴을 적용시킨 프로젝트
+<br/>
+
+## 개발기간 
+ 
+- ### (2023.03.07 ~ 2023.03.17)
+
+  <br/>
+
 <br/>
 
 # 기획의도
@@ -9,14 +18,14 @@
 
 # 사용한 기술
 
-## - JAVA JavaScript Ajax Jquery Html5 CSS3
+- ### JAVA JavaScript Ajax Jquery Html5 CSS3
 
 # 담당파트
 
-## - 메인페이지,메뉴,하단메뉴
+- ### 메인페이지,메뉴,하단메뉴
 <br/>
 
-## - 상품목록 태그처리와 페이징처리
+- ### 상품목록 태그처리와 페이징처리
 
 <br/>
 
